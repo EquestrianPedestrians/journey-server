@@ -15,10 +15,12 @@ const https_options = {
 const app = express();
 const port = process.env.PORT || 8080;
 const server = https.createServer(https_options, app).listen(port, function() {
-  console.log('listening on port ' + port)
+  console.log('Port ' + port + ' is in business, bitchesss!')
 })
 
 //MIDDLEWARE
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
+module.exports = app;
