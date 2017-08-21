@@ -1,7 +1,7 @@
 {
 "AWSEBDockerrunVersion": "1",
 "Image": {
-	"Name": "journey-server:latest",
+	"Name": "r0chellevee/journey-server:latest",
 	"Update": "true"
   },
 "Ports": [
