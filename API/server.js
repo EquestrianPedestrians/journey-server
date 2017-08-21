@@ -15,7 +15,7 @@ const morgan = require('morgan');
 const app = express();
 const port = process.env.PORT || 8080;
 
-app.use(express.static('public'))
+app.use(express.static('./public'))
 const hike = require('./routes.js')(app, express);
 
 app.listen(port, function() {
@@ -32,7 +32,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 //AWS TESTING
-hike;
+hike
 
 
 
