@@ -4,4 +4,4 @@ module.exports = {
   hike: function(req, res) {
     res.status(200).send('This is working');
   }
-}
+};

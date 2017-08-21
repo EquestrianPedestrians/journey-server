@@ -3,9 +3,7 @@ const express = require('express');
 const https = require('https');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const hike = require('/routes');
 
-app.use(express.static('public'))
 
 // const key = fs.readFileSync('journey-key.pem');
 // const cert = fs.readFileSync('journey-cert.pem');
@@ -16,6 +14,9 @@ app.use(express.static('public'))
 
 const app = express();
 const port = process.env.PORT || 8080;
+
+app.use(express.static('public'))
+const hike = require('./routes.js')(app, express);
 
 app.listen(port, function() {
   console.log('We\'re live at ' + port)
@@ -31,7 +32,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 //AWS TESTING
-hike()
+hike;
 
 
 

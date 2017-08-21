@@ -1,4 +1,4 @@
-const controllers = require('/controllers.js');
+const controllers = require('./controllers.js');
 
 module.exports = function(app, express) {
   app.get('/hikes', controllers.hike);
