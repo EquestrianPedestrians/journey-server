@@ -15,7 +15,7 @@ const morgan = require('morgan');
 const app = express();
 const port = process.env.PORT || 8080;
 
-// app.use(express.static('public'))
+app.use(express.static('public'))
 const hike = require('./routes.js')(app, express);
 
 app.listen(port, function() {
