@@ -1,7 +1,4 @@
-node_modules
 
-journey-key.pem
-journey-cert.pem
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml

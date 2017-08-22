@@ -1,7 +1,11 @@
 branch-defaults:
   default:
-    environment: journey-dev
+    environment: null
     group_suffix: null
+environment-defaults:
+  journey-dev:
+    branch: null
+    repository: null
 global:
   application_name: journey-server
   branch: null

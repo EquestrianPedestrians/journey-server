@@ -1,7 +1,7 @@
 {
 "AWSEBDockerrunVersion": "1",
 "Image": {
-	"Name": "r0chellevee/journey-server:latest",
+	"Name": "r0chellevee/node-vim-nginx",
 	"Update": "true"
   },
 "Ports": [
@@ -14,5 +14,6 @@
 	"HostDirectory": "/Users/Home/journey-server/API",
 	"ContainerDirectory": "/app"
     }
-  ]
+  ],
+"Logging": "var/log/nginx"
 }
