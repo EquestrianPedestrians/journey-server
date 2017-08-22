@@ -1,6 +1,6 @@
 branch-defaults:
   default:
-    environment: journey-server-dev2
+    environment: journey-server-dev
     group_suffix: null
 environment-defaults:
   journey-dev:
