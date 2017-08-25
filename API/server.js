@@ -23,7 +23,7 @@ app.listen(port, function() {
 })
 
 // const server = https.createServer(https_options, app).listen(port, function() {
-//   console.log('Port ' + port + ' is in business, bitchesss!')
+//   console.log('Port ' + port + ' is in business!')
 // })
 
 //MIDDLEWARE
@@ -31,8 +31,6 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-//AWS TESTING
-hike;
 
 
 
