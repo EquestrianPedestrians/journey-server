@@ -1,0 +1,35 @@
+version: '2'
+
+services:
+  
+  web:
+    container_name: web
+    build: ./API
+    ports:
+      - "8080:8080"
+    volumes: 
+      - "./API:/app"
+  
+  pg-data:
+    image: busybox
+    container_name: pg-data
+    volumes:
+      - /var/lib/postgresql/data
+  
+  postgres:
+    image: postgres
+    container_name: db
+    volumes_from:
+      - pg-data 
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: journey
+      PG_DATA: /var/lib/postgresql/data
+
+
+
+

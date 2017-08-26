@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY package.json /app
 
-RUN npm install -g nodemon && npm install --silent -progress=false
+RUN npm install -g nodemon && npm install --quiet -progress=false
 
 COPY . /app
 

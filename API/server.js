@@ -3,36 +3,26 @@ const express = require('express');
 const https = require('https');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const indexRouter = require('./routers/index');
+const userRouter = require('./routers/user');
 
 
-// const key = fs.readFileSync('journey-key.pem');
-// const cert = fs.readFileSync('journey-cert.pem');
-// const https_options = {
-//     key: key,
-//     cert: cert
-// };
-
+//  CREATE SERVER
 const app = express();
 const port = process.env.PORT || 8080;
-
-app.use(express.static('./public'))
-const hike = require('./routes.js')(app, express);
-
 app.listen(port, function() {
   console.log('We\'re live at ' + port)
 })
 
-// const server = https.createServer(https_options, app).listen(port, function() {
-//   console.log('Port ' + port + ' is in business, bitchesss!')
-// })
-
-//MIDDLEWARE
+//  MIDDLEWARE
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-//AWS TESTING
-hike;
+
+//  REGISTER ROUTES
+app.use('/', indexRouter);
+app.use('/api/users', userRouter);
 
 
 
