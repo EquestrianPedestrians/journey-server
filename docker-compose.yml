@@ -3,12 +3,10 @@ version: '2'
 services:
   
   web:
-    container_name: journey
+    container_name: web
     build: ./API
     ports:
       - "8080:8080"
-    links:
-      - postgres
     volumes: 
       - "./API:/app"
   
