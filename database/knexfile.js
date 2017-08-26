@@ -4,7 +4,7 @@ module.exports = {
 
   test: {
     client: 'pg',
-    connection: 'postgres://localhost/journey_test',
+    connection: 'postgres://localhost:5432/journey_test',
     migrations: {
       directory: __dirname + '/database/migrations'
     },
@@ -15,7 +15,7 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: 'postgres://localhost/journey',
+    connection: 'postgres://localhost:5432/journey',
     migrations: {
       directory: __dirname + '/database/migrations'
     },
@@ -24,15 +24,5 @@ module.exports = {
     }
   },
 
-  production: {
-    client: 'pg',
-    connection: process.env.DATABASE_URL,
-    migrations: {
-      directory: __dirname + '/database/migrations'
-    },
-    seeds: {
-      directory: __dirname + '/database/seeds/test'
-    }
-  }
 
 };
