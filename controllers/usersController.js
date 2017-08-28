@@ -1,4 +1,4 @@
-const knex = require('../../database/knex.js');
+const knex = require('../knex.js');
 
 module.exports = {
   getAllUsers: (req, res) => {

@@ -1,4 +1,5 @@
 node_modules
+init_db.sql
 
 journey-key.pem
 journey-cert.pem

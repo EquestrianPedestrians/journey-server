@@ -1,15 +1,6 @@
 version: '2'
 
 services:
-  
-  web:
-    container_name: web
-    build: ./API
-    ports:
-      - "8080:8080"
-    volumes: 
-      - "./API:/app"
-  
   pg-data:
     image: busybox
     container_name: pg-data
@@ -29,6 +20,18 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: journey
       PG_DATA: /var/lib/postgresql/data
+  
+  web:
+    build: .
+    container_name: web
+    depends_on:
+      - postgres
+    entrypoint:
+      - /usr/local/bin/docker-entrypoint.sh
+    ports:
+      - "8080:8080"
+    environment: 
+      NODE_ENV: production
 
 
 
