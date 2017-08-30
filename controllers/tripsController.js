@@ -1,12 +1,12 @@
 const knex = require('../knex.js');
 
 module.exports = {
-  getAllUsers: (req, res) => {
-    return knex('users').select('*')
-    .then((users) => {
+  getAllTrips: (req, res) => {
+    return knex('trips').select('*')
+    .then((trips) => {
       res.status(200).json({
         status: 'success',
-        data: users
+        data: trips
       });
     })
     .catch((err) => {
@@ -16,13 +16,13 @@ module.exports = {
       });
     })
   },
-  getUserId: (req, res) => {
-    let query = req.query.name
-    return knex('users').where('name', query).select('id')
-    .then((userId) => {
-      res.status(200).send({
+  getTrip: (req, res) => {
+    let query = req.query.title
+    return knex('trips').where('title', query).select('*')
+    .then((trips) => {
+      res.status(200).json({
         status: 'success',
-        user: userId[0]
+        user: trips[0]
       })
     })
     .catch((err) => {
@@ -32,12 +32,12 @@ module.exports = {
       });
     })
   },
-  addUser: (req, res) => {
-    return knex('users').insert(req.body)
+  createTrip: (req, res) => {
+    return knex('trips').insert(req.body)
     .then(() => {
       res.json({
         status: 'success',
-        data: 'User Added!'
+        data: 'Trip Added!'
       });
     })
     .catch((err) => {

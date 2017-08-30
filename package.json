@@ -5,7 +5,7 @@
     "start": "nodemon server.js",
     "start-docker": "pm2-docker start",
     "migrate": "knex migrate:latest",
-    "seed": "knex seed:run --env production"
+    "seed": "knex seed:run"
   },
   "repository": {
     "type": "git",
