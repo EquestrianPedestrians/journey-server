@@ -8,7 +8,7 @@ module.exports = {
         status: 'success',
         data: destinations
       });
-    })
+    }) 
     .catch((err) => {
       res.status(500).json({
         status: 'error',
@@ -16,13 +16,13 @@ module.exports = {
       });
     })
   },
-  getTrip: (req, res) => {
-    let query = req.query.title
-    return knex('trips').where('title', query).select('*')
-    .then((trips) => {
+  getDestination: (req, res) => {
+    let query = req.query.city
+    return knex('destinations').where('city', query).select('*')
+    .then((destinations) => {
       res.status(200).json({
         status: 'success',
-        user: trips[0]
+        user: destinations[0]
       })
     })
     .catch((err) => {
@@ -32,7 +32,7 @@ module.exports = {
       });
     })
   },
-  createTrip: (req, res) => {
+  addDestination: (req, res) => {
     return knex('trips').insert(req.body)
     .then(() => {
       res.json({
