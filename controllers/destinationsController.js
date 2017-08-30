@@ -22,7 +22,7 @@ module.exports = {
     .then((destinations) => {
       res.status(200).json({
         status: 'success',
-        user: destinations[0]
+        user: destinations
       })
     })
     .catch((err) => {
@@ -33,11 +33,11 @@ module.exports = {
     })
   },
   addDestination: (req, res) => {
-    return knex('trips').insert(req.body)
+    return knex('destinations').insert(req.body)
     .then(() => {
       res.json({
         status: 'success',
-        data: 'Trip Added!'
+        data: 'City Added!'
       });
     })
     .catch((err) => {
