@@ -4,8 +4,8 @@ const https = require('https');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const indexRouter = require('./routers/index');
-const userRouter = require('./routers/user');
-
+const usersRouter = require('./routers/users');
+const tripsRouter = require('./routers/trips')
 
 //  CREATE SERVER
 const app = express();
@@ -22,7 +22,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 //  REGISTER ROUTES
 app.use('/', indexRouter);
-app.use('/api/users', userRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/trips', tripsRouter);
 
 
 

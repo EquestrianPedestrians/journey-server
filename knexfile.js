@@ -24,6 +24,17 @@ module.exports = {
     }
   },
 
+  staging: {
+    client: 'pg',
+    connection: 'postgres://user:postgres@postgres:5432/journey',
+    migrations: {
+      directory: __dirname + '/database/migrations'
+    },
+    seeds: {
+      directory: __dirname + '/database/seeds/development'
+    }
+  },
+
   production: {
     client: 'pg',
     connection: {

@@ -1,5 +1,6 @@
 node_modules
 init_db.sql
+create-vm
 
 journey-key.pem
 journey-cert.pem
