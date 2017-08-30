@@ -1,12 +1,12 @@
 const knex = require('../knex.js');
 
 module.exports = {
-  getAllDestinations: (req, res) => {
-    return knex('destinations').select('*')
-    .then((destinations) => {
+  getAllWeather: (req, res) => {
+    return knex('weather').select('*')
+    .then((weather) => {
       res.status(200).json({
         status: 'success',
-        data: destinations
+        data: weather
       });
     }) 
     .catch((err) => {
@@ -16,13 +16,15 @@ module.exports = {
       });
     })
   },
-  getDestination: (req, res) => {
-    let query = req.query.city
-    return knex('destinations').where('city', query).select('*')
-    .then((destinations) => {
+  getDayWeather: (req, res) => {
+    let city = req.query.city;
+    let date = req.query.date
+    const sub = knex('destinations').where({city: city}).select('id');
+    return knex('weather').where({destinationId: sub}).andWhere({date: date}).select('*')
+    .then((weather) => {
       res.status(200).json({
         status: 'success',
-        user: destinations
+        user: weather
       })
     })
     .catch((err) => {
@@ -32,7 +34,7 @@ module.exports = {
       });
     })
   },
-  addDestination: (req, res) => {
+  addDayWeather: (req, res) => {
     return knex('destinations').insert(req.body)
     .then(() => {
       res.json({

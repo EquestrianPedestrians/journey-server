@@ -5,7 +5,9 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const indexRouter = require('./routers/index');
 const usersRouter = require('./routers/users');
-const tripsRouter = require('./routers/trips')
+const tripsRouter = require('./routers/trips');
+const destinationsRouter = require('./routers/destinations');
+const weatherRouter = require('./routers/weather');
 
 //  CREATE SERVER
 const app = express();
@@ -24,7 +26,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/trips', tripsRouter);
-
+app.use('/api/destinations', destinationsRouter);
+app.use('/api/weather', weatherRouter);
 
 
 module.exports = app;
